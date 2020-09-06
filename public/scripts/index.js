@@ -1,11 +1,30 @@
-
+import spotify_worker from './spotify.js';
+import graphPan from './graphpan.js';
 
 window.onload = () => {
-    fetch('http://localhost:8000/login', {method: 'GET', mode: 'no-cors', redirect: 'follow'})
-    .then(result => {
-        return result
-    }).then(result => {
-        console.log(result);
-        console.log(window.location);
+    
+    let graph = document.querySelector('.graph');
+    let controller = document.querySelector('.controller');
+    
+    
+    spotify_worker.getArchive('http://localhost:8000/euphonic')
+    .then(res => {
+        let songs = spotify_worker.filterArchive(res.items);
+        songs.map(x => {
+            spotify_worker.createMemory(x.url, controller.clientWidth, controller.clientHeight);
+        })
     });
+
+
+    window.addEventListener('mousemove', e => {
+        graphPan.pan(
+            controller.clientWidth,
+            controller.clientHeight,
+            {x: e.x, y: e.y},
+            .5,
+            graph
+        );
+    });
+
 }
+

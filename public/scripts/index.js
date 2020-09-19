@@ -11,7 +11,7 @@ window.onload = () => {
     .then(res => {
         let songs = spotify_worker.filterArchive(res.items);
         songs.map(x => {
-            spotify_worker.createMemory(x.url, controller.clientWidth, controller.clientHeight);
+            spotify_worker.createMemory(x.url, graph.clientWidth, graph.clientHeight);
         })
     });
 
@@ -21,7 +21,7 @@ window.onload = () => {
             controller.clientWidth,
             controller.clientHeight,
             {x: e.x, y: e.y},
-            .5,
+            1.0,
             graph
         );
     });

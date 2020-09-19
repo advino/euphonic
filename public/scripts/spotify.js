@@ -29,15 +29,23 @@ spotify_worker.createMemory = (url, width, height) => {
     let div = document.createElement('div');
     img.src = url;
 
-    div.style.top = Math.random() * width + 'px';
-    div.style.left = Math.random() * height + 'px';
+    div.style.left = Math.random() * width + 'px';
+    div.style.top = Math.random() * height + 'px';
     div.classList.add('node');
 
     div.appendChild(img);
 
     let graph = document.querySelector('.graph');
 
+    div.addEventListener('click', () => {
+        songDetail();
+    });
+
     graph.appendChild(div);
 }
 
+function songDetail() {
+    console.log("FUCK");
+}
+ 
 export default spotify_worker;

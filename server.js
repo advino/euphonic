@@ -27,10 +27,9 @@ let authOptions = {
 
 app.get('/euphonic', async (req, res, next) => {
     try {
-
         let token = await generateToken(authOptions);
         let options = {
-            url: `https://api.spotify.com/v1/playlists/3u2CA8gexqL3D8RUD4fEQo/tracks`,
+            url: `https://api.spotify.com/v1/playlists/4VPnm1uyzUTnmLnbqq6xZd/tracks`,
             headers: {
                 'Authorization': 'Bearer ' + token
             }

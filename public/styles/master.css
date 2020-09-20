@@ -11,6 +11,7 @@ html {
 }
 
 body {
+    position: relative;
     display: flex;
     width: 100%;
     height: 100%;
@@ -31,6 +32,8 @@ body {
     height: 1080px;
     padding: 0;
     margin: 0;
+    top: 0;
+    left: 0;
     background-color: #e8eaed;
     border: solid black 1px;
     overflow: none;
@@ -114,7 +117,6 @@ body {
 .subform-container-active {
     pointer-events: all;
     background-color: rgba(0,0,0,0.60);
-    backdrop-filter: blur(20px);
 }
 
 .form-item {
@@ -143,7 +145,13 @@ body {
     margin-bottom: 8px;
 }
 
+.track-search {
+    width: 100%;
+    position: relative;
+}
+
 .form-search {
+    position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -206,4 +214,56 @@ body {
     color: white;
     border:none;
     padding: 10px 16px 10px 16px
+}
+
+.search-results {
+    display: none;
+    position: absolute;
+    width: inherit;
+    max-height: 300px;
+    height: auto;
+    padding: 12px;
+    background-color: #FFFFFF;
+    border: solid #00000010 1px;
+    border-radius: 0 0 8px 8px;
+}
+
+.search-results-active {
+    display: block;
+}
+
+.search-caption {
+    font-size: .8em;
+    color: #0000008e;
+}
+
+.result {
+    display: flex;
+    width: 100%;
+    height: auto;
+    padding: 6px 0 6px 0;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.result > * {
+    margin-right: 8px;
+}
+
+.result > img {
+    width: 24px;
+    height: 24px;
+}
+
+.result > h6 {
+    font-weight: normal;
+    font-size: .8em;
+    color: #000000;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.result > span {
+    font-size: .8em;
+    color: #0000008e
 }

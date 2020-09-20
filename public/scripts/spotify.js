@@ -1,51 +1,14 @@
-let spotify_worker = {};
+let SPOTIFY_WORKER = {};
 
-spotify_worker.getArchive = (url) => {
-    
-    return fetch(url, {method: 'GET', mode: 'no-cors'})
-    .then(response => {
-        return response.json();
-    })
-    .then(result => {
+SPOTIFY_WORKER.throttle = async (keyword) => {
+    try {
+        let response = await fetch(`http://localhost:8000/spotifysearch?q=${keyword}`, {method: 'GET', mode: 'no-cors'});
+        let result = await response.json();
         return result;
-    });
+    } catch(err) {
+        console.log("Failed to retrieve data");
+        console.error(err);
+    }
 }
 
-spotify_worker.filterArchive = (archive) => {
-    
-    let items = archive.map(x => {
-        return {
-            name: x.track.name,
-            url: x.track.album.images[1].url
-        }
-    });
-
-    return items;
-}
-
-spotify_worker.createMemory = (url, width, height) => {
-
-    let img = document.createElement('img');
-    let div = document.createElement('div');
-    img.src = url;
-
-    div.style.left = Math.random() * width + 'px';
-    div.style.top = Math.random() * height + 'px';
-    div.classList.add('node');
-
-    div.appendChild(img);
-
-    let graph = document.querySelector('.graph');
-
-    div.addEventListener('click', () => {
-        songDetail();
-    });
-
-    graph.appendChild(div);
-}
-
-spotify_worker.showDetail = (name) => {
-    
-}
- 
-export default spotify_worker;
+export default SPOTIFY_WORKER;

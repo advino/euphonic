@@ -1,20 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/master.css">
 
     <title>Euphonic</title>
 </head>
-<body>
-    <main class="graph">
 
-    </main>
+<body>
+    <div class="graph">
+
+    </div>
     <div class="controller">
 
     </div>
+    <div class="submission-container">
+        <div class="submission-form">
+            <div class="form-item">
+                <div class="form-title">
+                    <h4>Create a memory</h4>
+                    <i class="material-icons">close</i>
+                </div>
+                <div class="track-search">
+                    <span class="form-subtitle">
+                        Select a track
+                    </span>
+                    <div class="form-search">
+                        <i class="material-icons">search</i>
+                        <input type="text" placeholder="Search track titles and artists, or paste Spotify’s link here">
+                    </div>
+                </div>
+            </div>
+            <div class="form-item">
+                <span class="form-subtitle">
+                    Describe your memory
+                </span>
+                <textarea class="form-description"
+                    placeholder="Describe the memory you have associated with this song"></textarea>
+            </div>
+            <div class="form-item">
+                <span class="form-subtitle">
+                    Select an associated emotion
+                </span>
+                <div class="emotion-selection"> 
+                    <div class="emotion-container">😀</div>
+                    <div class="emotion-container">🥰</div>
+                    <div class="emotion-container">🥺</div>
+                    <div class="emotion-container">😔</div>
+                    <div class="emotion-container">😢</div>
+                    <div class="emotion-container">🥵</div>
+                </div>
+            </div>
+            <div class="form-footer">
+                <button class="form-submit">Create</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
     <script src="./scripts/index.js" type="module"></script>
 </body>
+
 </html>

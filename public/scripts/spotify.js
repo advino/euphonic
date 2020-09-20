@@ -44,8 +44,8 @@ spotify_worker.createMemory = (url, width, height) => {
     graph.appendChild(div);
 }
 
-function songDetail() {
-    console.log("FUCK");
+spotify_worker.showDetail = (name) => {
+    
 }
  
 export default spotify_worker;

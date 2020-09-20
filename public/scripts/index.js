@@ -1,18 +1,23 @@
 import graphPan from './graphpan.js';
 import DATABASE_WORKER from './database.js';
 
+
+// Execute system level functions on load
 window.onload = async () => {
     
+    // Get DOM entities
     let graph = document.querySelector('.graph');
     let controller = document.querySelector('.controller');
     let formContainer = document.querySelector('.submission-container');
     let form = document.querySelector('.submission-form');
 
+    // Async call to collect data from database
     let data = await DATABASE_WORKER.getData();
     data.map(item => {
         createMemory(item, graph.clientWidth, graph.clientHeight);
     });
 
+    // Instantiate graph pan
     window.addEventListener('mousemove', e => {
         graphPan.pan(
             controller.clientWidth,
@@ -23,7 +28,9 @@ window.onload = async () => {
         );
     });
 
+    // Trigger form on click
     graph.addEventListener('click', e => {
+        // Listen for clicks on empty space only
         if(e.target.nodeName !== "IMG") {
             formContainer.classList.add('subform-container-active');
             form.classList.add('form-active');
@@ -31,6 +38,7 @@ window.onload = async () => {
     });
 }
 
+// Append nodes based on data from firebase
 let createMemory = (data, width, height) => {
 
     let img = document.createElement('img');

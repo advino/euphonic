@@ -11,7 +11,7 @@ const helper = require('./helpers/helper.js');
 
 // Firebase Admin for accessing Cloud Firestore
 const admin = require('firebase-admin');
-let serviceAccount = require('./tokens/euphonic-1c721-firebase-adminsdk-roi21-3087f18727.json');
+let serviceAccount = require('./tokens/euphonic-1c721-firebase-adminsdk-roi21-3c6fb72275.json');
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     databaseURL: "https://euphonic-1c721.firebaseio.com"
